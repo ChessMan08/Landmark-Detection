@@ -52,16 +52,3 @@ To run this project locally, follow these steps:
     ```bash
     git clone https://github.com/ChessMan08/landmark-detection.git
     ```
-
-## Usage
-
-1. **Data Preparation**: Download the GLDv2 dataset and place it in the `data/` directory.
-2. **Training**: Run the training script to train the model.
-    ```bash
-    python train.py --config config.yaml
-    ```
-3. **Evaluation**: Evaluate the model using the validation script.
-    ```bash
-    python evaluate.py --model-path models/best_model.pth
-    ```
-
