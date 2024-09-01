@@ -7,6 +7,8 @@ This project involves building a deep learning model for landmark detection usin
 ## Table of Contents
 
 - [Dataset](#dataset)
+- [Download Dataset](#download-dataset)
+- [Extracting the data](#extracting-the-data)
 - [Model Architecture](#model-architecture)
 - [Training](#training)
 - [Evaluation](#evaluation)
@@ -19,6 +21,56 @@ The Google Landmark Detection Dataset (GLDv2) is a large-scale dataset with:
 - **200,000+ unique landmarks**
 
 This dataset is a benchmark for large-scale image retrieval and classification, providing a rich and diverse set of landmarks from around the world.
+
+## Download Dataset
+
+## Training list
+
+-   `train.csv`: CSV with id,url,landmark_id fields. `id` is a 16-character
+    string, `url` is a string, `landmark_id` is an integer. Available at:
+    [`https://s3.amazonaws.com/google-landmark/metadata/train.csv`](https://s3.amazonaws.com/google-landmark/metadata/train.csv).
+
+## Training data
+
+The `train` set is split into 500 TAR files (each of size ~1GB) containing
+JPG-encoded images. The files are located in the `train/` directory, and are
+named `images_000.tar`, `images_001.tar`, ..., `images_499.tar`. To download
+them, access the following link:
+
+[`https://s3.amazonaws.com/google-landmark/train/images_000.tar`](https://s3.amazonaws.com/google-landmark/train/images_000.tar)
+
+And similarly for the other files.
+
+## Test dataset
+
+-   `test.csv`: single-column CSV with id field. `id` is a 16-character string.
+    Available at:
+    [`https://s3.amazonaws.com/google-landmark/metadata/test.csv`](https://s3.amazonaws.com/google-landmark/metadata/test.csv).
+
+## Test data
+
+The `test` set is split into 20 TAR files (each of size ~500MB) containing
+JPG-encoded images. The files are located in the `test/` directory, and are
+named `images_000.tar`, `images_001.tar`, ..., `images_019.tar`. To download
+them, access the following link:
+
+[`https://s3.amazonaws.com/google-landmark/test/images_000.tar`](https://s3.amazonaws.com/google-landmark/test/images_000.tar)
+
+And similarly for the other files.
+
+## Extracting the data
+
+We recommend that the set of TAR files corresponding to each dataset split be
+extracted into a directory per split; ie, the `index` TARs extracted into an
+`index` directory; `train` TARs extracted into a `train` directory; `test` TARs
+extracted into a `test` directory. This is done automatically if you use the
+above download instructions/script.
+
+The directory structure of the image data is as follows: Each image is stored in
+a directory `${a}`/`${b}`/`${c}`/`${id}`.jpg, where `${a}`, `${b}` and `${c}`
+are the first three letters of the image id, and `${id}` is the image id found
+in the csv files. For example, an image with the id `0123456789abcdef` would be
+stored in `0/1/2/0123456789abcdef.jpg`.
 
 ## Model Architecture
 
