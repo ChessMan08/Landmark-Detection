@@ -11,7 +11,6 @@ This project involves building a deep learning model for landmark detection usin
 - [Training](#training)
 - [Evaluation](#evaluation)
 - [Installation](#installation)
-- [Usage](#usage)
 
 ## Dataset
 
